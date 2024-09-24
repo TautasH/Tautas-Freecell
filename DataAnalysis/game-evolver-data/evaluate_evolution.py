@@ -1,7 +1,7 @@
 import json
 import matplotlib.pyplot as plt
 
-path = '/home/tautas/IdeaProjects/MasterT/Analysis/game-evolver-data/evolution_results_difficult_looking_glass.json'
+path = 'game-evolver-data/evolution_results_difficult_looking_glass.json'
 
 with open(path, 'r') as file:
     data = json.load(file)

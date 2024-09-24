@@ -1,8 +1,8 @@
 import json
 import os
 
-looking_glass_dir = '/home/tautas/IdeaProjects/MasterT/Analysis/fc-solve-data/batch_solutions_looking_glass'
-video_editing_dir = '/home/tautas/IdeaProjects/MasterT/Analysis/fc-solve-data/batch_solutions_video_editing'
+looking_glass_dir = 'solutions-looking_glass'
+video_editing_dir = 'solutions-video-editing'
 
 def load_data_from_directory(directory_path):
     aggregated_data = []

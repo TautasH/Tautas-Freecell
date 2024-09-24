@@ -104,5 +104,5 @@ def main(directory):
     plot_averages(averages, estimate_at_60)
 
 if __name__ == "__main__":
-    directory = "/home/tautas/IdeaProjects/MasterT/Analysis/state-counts-data/state_counts_data_algorithm_limited"
+    directory = "state-counts-data/foundation-first"
     main(directory)

@@ -3,6 +3,12 @@ import json
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
+bbf_mpbbf_directory = "my-data/games_data_200.000"
+fish_directory = "fish-data/Fish_solutions125_executed_paths.json"
+looking_glass_directory = "fc-solve-data/batch_solutions_looking_glass"
+video_editing_directory = "fc-solve-data/batch_solutions_video_editing"
+
+
 def read_game_data(directory):
     all_games_data = []
     for root, dirs, files in os.walk(directory):
@@ -20,6 +26,7 @@ def read_game_data(directory):
                         print(f"Error decoding JSON from file {filepath}")
     return all_games_data
 
+
 def read_fish_data(filepath):
     with open(filepath, 'r') as file:
         try:
@@ -31,6 +38,7 @@ def read_fish_data(filepath):
         except json.JSONDecodeError:
             print(f"Error decoding JSON from file {filepath}")
     return []
+
 
 def read_algo_directory(directory, game_key, length_key, counter_key):
     data = {}
@@ -55,6 +63,7 @@ def read_algo_directory(directory, game_key, length_key, counter_key):
                     except json.JSONDecodeError:
                         print(f"Error decoding JSON from file {filepath}")
     return data
+
 
 def calculate_statistics(bbf_mpbbf_data, fish_data, looking_glass_data, video_editing_data):
     algorithm_keys = {
@@ -110,8 +119,8 @@ def calculate_statistics(bbf_mpbbf_data, fish_data, looking_glass_data, video_ed
         stats['VideoEditing']['counters'].append(counter)
         stats['VideoEditing']['wins'] += 1
 
-
     calculate_averages_and_plot(stats)
+
 
 def calculate_averages_and_plot(stats):
     averages = {algo: defaultdict(list) for algo in stats.keys()}
@@ -126,10 +135,12 @@ def calculate_averages_and_plot(stats):
         for path_length in sorted(averages[algo].keys()):
             if averages[algo][path_length]:
                 avg_stats[algo]['path_lengths'].append(path_length)
-                avg_stats[algo]['avg_counters'].append(sum(averages[algo][path_length]) / len(averages[algo][path_length]))
+                avg_stats[algo]['avg_counters'].append(
+                    sum(averages[algo][path_length]) / len(averages[algo][path_length]))
                 avg_stats[algo]['counts'].append(len(averages[algo][path_length]))
 
     plot_all_algos_single_labels(avg_stats)
+
 
 def plot_all_algos_single_labels(avg_stats):
     fig, axs = plt.subplots(2, 2, figsize=(12, 12), sharex=True, sharey=True)
@@ -137,8 +148,10 @@ def plot_all_algos_single_labels(avg_stats):
     plt.subplots_adjust(wspace=0.05, hspace=0.3)
 
     algos = ['best_bucket_first_search', 'mp_best_bucket_first_search', 'Fish', 'LookingGlass']
-    legend_labels = ['BBF Avg States \nGenerated', 'MP-BBF Avg States\nGenerated', 'Fish Avg States Generated', 'Looking-Glass Avg States\nGenerated']
-    solution_count_labels = ['BBF Solution Count', 'MP-BBF Solution Count', 'Fish Solution \nCount', 'Looking-Glass\nSolution Count', 'Video-Editing\nSolution Count']
+    legend_labels = ['BBF Avg States \nGenerated', 'MP-BBF Avg States\nGenerated', 'Fish Avg States Generated',
+                     'Looking-Glass Avg States\nGenerated']
+    solution_count_labels = ['BBF Solution Count', 'MP-BBF Solution Count', 'Fish Solution \nCount',
+                             'Looking-Glass\nSolution Count', 'Video-Editing\nSolution Count']
     colors = ['blue', 'green', 'red', 'purple']
 
     positions = [(0, 0), (0, 1), (1, 0), (1, 1)]
@@ -154,8 +167,10 @@ def plot_all_algos_single_labels(avg_stats):
         ax2 = ax.twinx()
         ax2.set_facecolor('#f5f5f5')
 
-        ax.plot(avg_stats[algo]['path_lengths'], avg_stats[algo]['avg_counters'], color=colors[i], marker='o', label=legend_labels[i])
-        ax2.plot(avg_stats[algo]['path_lengths'], avg_stats[algo]['counts'], color='gray', marker='x', linestyle='--', label=solution_count_labels[i])
+        ax.plot(avg_stats[algo]['path_lengths'], avg_stats[algo]['avg_counters'], color=colors[i], marker='o',
+                label=legend_labels[i])
+        ax2.plot(avg_stats[algo]['path_lengths'], avg_stats[algo]['counts'], color='gray', marker='x', linestyle='--',
+                 label=solution_count_labels[i])
 
         ax.set_xlim(x_min, x_max)
         ax.set_ylim(y_min, y_max)
@@ -171,11 +186,15 @@ def plot_all_algos_single_labels(avg_stats):
 
     ax = axs[1, 1]
     ax2 = ax.twinx()
-    ax.plot(avg_stats['LookingGlass']['path_lengths'], avg_stats['LookingGlass']['avg_counters'], color='purple', marker='o')
-    ax2.plot(avg_stats['LookingGlass']['path_lengths'], avg_stats['LookingGlass']['counts'], color='gray', marker='x', linestyle='--', label=solution_count_labels[3])
+    ax.plot(avg_stats['LookingGlass']['path_lengths'], avg_stats['LookingGlass']['avg_counters'], color='purple',
+            marker='o')
+    ax2.plot(avg_stats['LookingGlass']['path_lengths'], avg_stats['LookingGlass']['counts'], color='gray', marker='x',
+             linestyle='--', label=solution_count_labels[3])
 
-    ax.plot(avg_stats['VideoEditing']['path_lengths'], avg_stats['VideoEditing']['avg_counters'], color='orange', marker='o', label='Video-Editing Avg States\nGenerated')
-    ax2.plot(avg_stats['VideoEditing']['path_lengths'], avg_stats['VideoEditing']['counts'], color='gray', marker='x', linestyle='--', label=solution_count_labels[4])
+    ax.plot(avg_stats['VideoEditing']['path_lengths'], avg_stats['VideoEditing']['avg_counters'], color='orange',
+            marker='o', label='Video-Editing Avg States\nGenerated')
+    ax2.plot(avg_stats['VideoEditing']['path_lengths'], avg_stats['VideoEditing']['counts'], color='gray', marker='x',
+             linestyle='--', label=solution_count_labels[4])
 
     ax.set_xlim(x_min, x_max)
     ax.set_ylim(y_min, y_max)
@@ -193,17 +212,15 @@ def plot_all_algos_single_labels(avg_stats):
 
 
 def main():
-    bbf_mpbbf_directory = "/home/tautas/IdeaProjects/MasterT/Analysis/my-data/games_data_200.000"
-    fish_directory = "/home/tautas/IdeaProjects/MasterT/Analysis/fish-data/Fish_solutions125_executed_paths_NEW.json"
-    looking_glass_directory = "/home/tautas/IdeaProjects/MasterT/Analysis/fc-solve-data/batch_solutions_looking_glass"
-    video_editing_directory = "/home/tautas/IdeaProjects/MasterT/Analysis/fc-solve-data/batch_solutions_video_editing"
-
     bbf_mpbbf_data = read_game_data(bbf_mpbbf_directory)
     fish_data = read_fish_data(fish_directory)
-    looking_glass_data = read_algo_directory(looking_glass_directory, 'game_number', 'solution_length', 'states_generated')
-    video_editing_data = read_algo_directory(video_editing_directory, 'game_number', 'solution_length', 'states_generated')
+    looking_glass_data = read_algo_directory(looking_glass_directory, 'game_number', 'solution_length',
+                                             'states_generated')
+    video_editing_data = read_algo_directory(video_editing_directory, 'game_number', 'solution_length',
+                                             'states_generated')
 
     calculate_statistics(bbf_mpbbf_data, fish_data, looking_glass_data, video_editing_data)
+
 
 if __name__ == "__main__":
     main()

@@ -3,7 +3,7 @@ import json
 
 looking_glass_path = 'fc-solve-data/batch_solutions_looking_glass'
 video_editing_path = 'fc-solve-data/batch_solutions_video_editing'
-fish_path = 'fish-data/Fish_solutions125_executed_paths_NEW.json'
+fish_path = 'fish-data/Fish_solutions125_executed_paths.json'
 bbf_mpbbf_path = 'my-data/games_data_200.000'
 
 shortest_path_count_unique = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}

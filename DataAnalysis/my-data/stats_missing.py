@@ -122,7 +122,7 @@ def find_missing_games(games_data, total_games=32000):
 
 
 def main():
-    directory = "/home/tautas/IdeaProjects/MasterT/Analysis/my-data/games_data_3_freecells"
+    directory = "my-data/games_data_3_freecells"
     games_data = read_game_data(directory)
     calculate_statistics(games_data)
 

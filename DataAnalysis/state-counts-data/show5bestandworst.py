@@ -47,5 +47,5 @@ def main(directory):
         print(f'Game #{game_id} with {total_states} states')
 
 if __name__ == "__main__":
-    directory = "/home/tautas/IdeaProjects/MasterT/Analysis/state-counts-data/state_counts_data_algorithm_limited"
+    directory = "state-counts-data/foundation-first"
     main(directory)

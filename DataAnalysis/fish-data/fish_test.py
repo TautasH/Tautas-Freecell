@@ -65,7 +65,7 @@ def get_statistics(fish_data):
     }
 
 def main():
-    fish_file = "/home/tautas/IdeaProjects/MasterT/Analysis/fish-data/Fish_solutions125_executed_paths_NEWNEW.json"
+    fish_file = "fish-data/Fish_solutions125_executed_paths.json"
 
     fish_data = read_fish_data(fish_file)
 

@@ -3,6 +3,12 @@ import json
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
+
+bbf_mpbbf_directory = "my-data/games_data_200.000"
+fish_directory = "fish-data/Fish_solutions125_executed_paths.json"
+looking_glass_directory = "fc-solve-data/batch_solutions_looking_glass"
+video_editing_directory = "fc-solve-data/batch_solutions_video_editing"
+
 def read_game_data(directory):
     all_games_data = []
     for root, dirs, files in os.walk(directory):
@@ -190,11 +196,6 @@ def plot_data(avg_stats, stats):
 
 
 def main():
-    bbf_mpbbf_directory = "/home/tautas/IdeaProjects/MasterT/Analysis/my-data/games_data_200.000"
-    fish_directory = "/home/tautas/IdeaProjects/MasterT/Analysis/fish-data/Fish_solutions125_executed_paths_NEW.json"
-    looking_glass_directory = "/home/tautas/IdeaProjects/MasterT/Analysis/fc-solve-data/batch_solutions_looking_glass"
-    video_editing_directory = "/home/tautas/IdeaProjects/MasterT/Analysis/fc-solve-data/batch_solutions_video_editing"
-
     bbf_mpbbf_data = read_game_data(bbf_mpbbf_directory)
     fish_data = read_fish_data(fish_directory)
     looking_glass_data = read_algo_directory(looking_glass_directory, 'game_number', 'solution_length', 'states_generated')

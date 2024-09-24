@@ -57,7 +57,7 @@ def read_game_results(directory):
     return bbf_results, mp_bbf_results
 
 def main():
-    directory = "/home/tautas/IdeaProjects/MasterT/Analysis/my-data/games_data_200.000"
+    directory = "my-data/games_data_200.000"
     bbf_results, mp_bbf_results = read_game_results(directory)
 
     specific_games = [285, 617, 657, 829, 1025, 1661, 1734, 2081, 2241, 2563, 2670, 3015, 3130, 3685, 4609, 5157, 5707, 6139, 6381, 6775, 6834, 6918, 7103, 7305, 7477, 8591, 9209, 9784, 9790, 9877]

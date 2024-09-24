@@ -2,8 +2,8 @@ import os
 import json
 
 
-my_data_directory = '/home/tautas/IdeaProjects/MasterT/Analysis/my-data/games_data_200.000'
-fish_data_file = '/home/tautas/IdeaProjects/MasterT/Analysis/fish-data/Fish_solutions125_executed_paths_NEW.json'
+my_data_directory = 'my-data/games_data_200.000'
+fish_data_file = 'fish-data/Fish_solutions125_executed_paths.json'
 
 def read_my_data(directory):
     all_games_data = {}

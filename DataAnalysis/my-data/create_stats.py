@@ -94,7 +94,7 @@ def calculate_statistics(games_data):
         print(f"Games with no solution: {', '.join(map(str, null_path_game_numbers))}")
 
 def main():
-    directory = "/home/tautas/IdeaProjects/MasterT/Analysis/my-data/games_data_200.000"
+    directory = "my-data/games_data_200.000"
     games_data = read_game_data(directory)
     calculate_statistics(games_data)
 

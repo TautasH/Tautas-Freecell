@@ -1,10 +1,10 @@
 import os
 import json
 
-my_data_directory = '/home/tautas/IdeaProjects/MasterT/Analysis/my-data/games_data_200.000'
-fish_data_file = '/home/tautas/IdeaProjects/MasterT/Analysis/fish-data/Fish_solutions125_executed_paths_NEW.json'
-looking_glass_directory = '/home/tautas/IdeaProjects/MasterT/Analysis/fc-solve-data/batch_solutions_looking_glass'
-video_editing_directory = '/home/tautas/IdeaProjects/MasterT/Analysis/fc-solve-data/batch_solutions_video_editing'
+my_data_directory = 'my-data/games_data_200.000'
+fish_data_file = 'fish-data/Fish_solutions125_executed_paths.json'
+looking_glass_directory = 'fc-solve-data/batch_solutions_looking_glass'
+video_editing_directory = 'fc-solve-data/batch_solutions_video_editing'
 
 def read_my_data(directory):
     all_games_data = {}

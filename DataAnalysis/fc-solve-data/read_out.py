@@ -1,6 +1,8 @@
 import os
 import json
 
+directory = "solutions-looking-glass"
+
 def read_json_files(directory):
     all_games_data = []
     for filename in os.listdir(directory):
@@ -25,7 +27,6 @@ def print_requested_games(games_data, requested_games):
             print(f"Game {game_no}: Data not found")
 
 def main():
-    directory = "/home/tautas/IdeaProjects/MasterT/Analysis/batch_solutions_looking_glass"
     requested_games = [285, 617, 657, 829, 1025, 1661, 1734, 2081, 2241, 2563, 2670, 3015, 3130, 3685, 4609, 5157, 5707, 6139, 6381, 6775, 6834, 6918, 7103, 7305, 7477, 8591, 9209, 9784, 9790, 9877]
 
     all_games_data = read_json_files(directory)
