@@ -3,8 +3,8 @@ import json
 
 path_bbf_mpbbf = 'my-data/games_data_200.000'
 path_fish = 'fish-data/Fish_solutions125_executed_paths.json'
-path_looking_glass = 'fc-solve-data/batch_solutions_looking_glass'
-path_video_editing = 'fc-solve-data/batch_solutions_video_editing'
+path_looking_glass = 'fc-solve-data/solutions-looking-glass'
+path_video_editing = 'fc-solve-data/solutions-video-editing'
 
 total_times_including_lost = {'BBF': 0.0, 'MP-BBF': 0.0, 'Fish': 0.0, 'Looking-Glass': 0.0, 'Video-Editing': 0.0}
 total_times_excluding_lost = {'BBF': 0.0, 'MP-BBF': 0.0, 'Fish': 0.0, 'Looking-Glass': 0.0, 'Video-Editing': 0.0}

@@ -5,8 +5,8 @@ from collections import defaultdict
 
 bbf_mpbbf_directory = "my-data/games_data_200.000"
 fish_directory = "fish-data/Fish_solutions125_executed_paths.json"
-looking_glass_directory = "fc-solve-data/batch_solutions_looking_glass"
-video_editing_directory = "fc-solve-data/batch_solutions_video_editing"
+looking_glass_directory = "fc-solve-data/solutions-looking-glass"
+video_editing_directory = "fc-solve-data/solutions-video-editing"
 
 
 def read_game_data(directory):

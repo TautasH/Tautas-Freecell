@@ -47,5 +47,5 @@ def main(directory):
         print(f'Game #{game_id} with {total_states} states')
 
 if __name__ == "__main__":
-    directory = "state-counts-data/foundation-first"
+    directory = "state-counts-data/all-possible-moves"
     main(directory)
